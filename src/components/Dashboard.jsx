@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase.js";
 import Icon from "./Icon.jsx";
+import IncidentOverview from "./IncidentOverview.jsx";
 
 function todayManila() {
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -443,6 +444,7 @@ export default function Dashboard({ onNavigate }) {
           </div>
         </div>
       </div>
+      <IncidentOverview onNavigate={onNavigate} />
     </section>
   );
 }

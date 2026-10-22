@@ -1,4 +1,10 @@
 const paths = {
+  incidents: (
+    <>
+      <path d="M9 3h6l1 2h4v16H4V5h4z" />
+      <path d="M9 3v4h6V3m-3 7v5m0 3h.01" />
+    </>
+  ),
   dashboard: (
     <>
       <rect x="3" y="3" width="7" height="7" rx="1.5" />

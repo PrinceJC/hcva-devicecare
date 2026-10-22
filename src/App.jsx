@@ -3,6 +3,8 @@ import { signIn, signOut } from "./lib/maintenance.js";
 import useAdminSession from "./hooks/useAdminSession.js";
 import Icon from "./components/Icon.jsx";
 import Dashboard from "./components/Dashboard.jsx";
+import IncidentLog from "./components/IncidentLog.jsx";
+import "./incidents.css";
 import VADirectory from "./components/VADirectory.jsx";
 import DeviceInventory from "./components/DeviceInventory.jsx";
 import InspectionHistory from "./components/InspectionHistory.jsx";
@@ -15,6 +17,7 @@ const sections = [
   { id: "devices", label: "Device inventory" },
   { id: "schedule", label: "Maintenance schedule" },
   { id: "history", label: "Inspection history" },
+  { id: "incidents", label: "Incident log" },
 ];
 
 function savedSection() {
@@ -316,6 +319,7 @@ export default function App() {
           {activeTab === "devices" && <DeviceInventory />}
           {activeTab === "schedule" && <QuarterlySchedule />}
           {activeTab === "history" && <InspectionHistory />}
+          {activeTab === "incidents" && <IncidentLog />}
           <footer className="workspace-footer">
             <span>HCVA DeviceCare · Preventive maintenance</span>
             <span>Six-month cadence · Every 6 calendar months</span>
