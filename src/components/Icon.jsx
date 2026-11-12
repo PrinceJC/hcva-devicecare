@@ -1,4 +1,6 @@
 const paths = {
+  actions: <><path d="M4 4h16v16H4z"/><path d="m7 9 2 2 3-4m1 8h4M7 16h2"/></>,
+  emailsettings: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></>,
   incidents: (
     <>
       <path d="M9 3h6l1 2h4v16H4V5h4z" />

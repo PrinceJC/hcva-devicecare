@@ -190,12 +190,12 @@ export default function DeviceInventory() {
     setInspectionDevice(device);
   }
 
-  function inspectionSaved() {
+  function inspectionSaved(result) {
     setInspectionDevice(null);
     setError('');
-    setMessage(
-      'Inspection saved. The next six-month inspection date was updated.'
-    );
+    setMessage(result?.hasFailures
+      ? 'Inspection saved. Open Action plans to review the draft, set a deadline, and prepare the email.'
+      : 'Inspection saved. The next six-month inspection date was updated.');
     setRefresh((current) => current + 1);
   }
 

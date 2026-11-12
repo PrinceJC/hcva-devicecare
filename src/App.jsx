@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { signIn, signOut } from "./lib/maintenance.js";
 import useAdminSession from "./hooks/useAdminSession.js";
 import Icon from "./components/Icon.jsx";
@@ -10,6 +10,9 @@ import DeviceInventory from "./components/DeviceInventory.jsx";
 import InspectionHistory from "./components/InspectionHistory.jsx";
 import QuarterlySchedule from "./components/QuarterlySchedule.jsx";
 import "./styles.css";
+const ActionPlans = lazy(() => import("./components/ActionPlans.jsx"));
+const EmailSettings = lazy(() => import("./components/EmailSettings.jsx"));
+import "./actions.css";
 
 const sections = [
   { id: "dashboard", label: "Dashboard" },
@@ -18,6 +21,8 @@ const sections = [
   { id: "schedule", label: "Maintenance schedule" },
   { id: "history", label: "Inspection history" },
   { id: "incidents", label: "Incident log" },
+  { id: "actions", label: "Action plans" },
+  { id: "emailsettings", label: "Email settings" },
 ];
 
 function savedSection() {
@@ -320,6 +325,16 @@ export default function App() {
           {activeTab === "schedule" && <QuarterlySchedule />}
           {activeTab === "history" && <InspectionHistory />}
           {activeTab === "incidents" && <IncidentLog />}
+          {activeTab === "actions" && (
+            <Suspense fallback={<p>Loading action plans…</p>}>
+              <ActionPlans />
+            </Suspense>
+          )}
+          {activeTab === "emailsettings" && (
+            <Suspense fallback={<p>Loading email settings…</p>}>
+              <EmailSettings />
+            </Suspense>
+          )}
           <footer className="workspace-footer">
             <span>HCVA DeviceCare · Preventive maintenance</span>
             <span>Six-month cadence · Every 6 calendar months</span>

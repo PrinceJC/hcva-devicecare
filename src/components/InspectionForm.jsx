@@ -122,7 +122,7 @@ export default function InspectionForm({
     }
 
     setBusy(false);
-    onSaved();
+    onSaved({ hasFailures: failed });
   }
 
   return (
